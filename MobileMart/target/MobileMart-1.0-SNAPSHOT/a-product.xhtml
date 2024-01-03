@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+          <title>Product for Admin</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+        <!--        <link rel="stylesheet" href="./css/Style.css"/>-->
+        <style>
+            /* styles.css */
+
+/* Additional styles for form inputs */
+.form-control {
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Style for the sign-up button */
+.btn-primary {
+  background-color: #ff6f61;
+  border-color: #ff6f61;
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #ff453a;
+  border-color: #ff453a;
+}
+
+/* Style for the header */
+h2 {
+  color: #333;
+}
+
+/* Error message style */
+.error-message {
+  display: none;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 576px) {
+  .container {
+    margin: 30px auto;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+}
+.form-label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            .form-input {
+                width: 50%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+            .form-input[type="file"] {
+                margin-top: 5px;
+            }
+
+            .form-button {
+                background-color: #ff453a;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .form-button:hover {
+                background-color: green;
+            }
+
+            .form-link {
+                text-decoration: none;
+                color: #ff453a;
+                margin-left: 10px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        
+            <h:form enctype="multipart/form-data">
+            
+            <h:outputLabel for="input1" value="Name:" styleClass="form-label"/>
+            <h:inputText value="#{adminCDIBean.pname}" id="input1" styleClass="form-input" required="true"/><br/><br/>
+            
+            <h:outputLabel for="input2" value="Ram:" styleClass="form-label"/>
+            <h:inputText id="input2" value="#{adminCDIBean.ram}" styleClass="form-input" required="true"/><br/><br/>
+            
+            <h:outputLabel for="input3" value="Processor:" styleClass="form-label"/>
+            <h:inputText id="input3" value="#{adminCDIBean.processor}" styleClass="form-input" required="true"/><br/><br/>
+            
+            <h:outputLabel for="input4" value="Screen Size:" styleClass="form-label"/>
+            <h:inputText id="input4" value="#{adminCDIBean.screenSize}" styleClass="form-input" required="true"/><br/><br/>
+            
+            <h:outputLabel for="input5" value="Color:" styleClass="form-label"/>
+            <h:inputText id="input5" value="#{adminCDIBean.color}" styleClass="form-input" required="true"/><br/><br/>
+            
+            <h:outputLabel for="input6" value="Price:" styleClass="form-label"/>
+            <h:inputText id="input6" value="#{adminCDIBean.price}" styleClass="form-input" required="true"/><br/><br/>
+            
+            <h:outputLabel for="input7" value="Internal Storage:" styleClass="form-label"/>
+            <h:inputText id="input7" value="#{adminCDIBean.internalstorage}" styleClass="form-input"  required="true"/><br/><br/>
+            
+            <h:outputLabel for="input8" value="Network Type:" styleClass="form-label"/>
+            <h:inputText id="input8" value="#{adminCDIBean.networktype}" styleClass="form-input" required="true"/><br/><br/>
+            
+            <h:outputLabel for="input9" value="Battery:" styleClass="form-label"/>
+            <h:inputText id="input9" value="#{adminCDIBean.batterycapacity}" styleClass="form-input" required="true"/><br/><br/>
+            
+            <h:outputLabel for="input10" value="Description:" styleClass="form-label"/>
+            <h:inputText id="input10" value="#{adminCDIBean.description}" styleClass="form-input"  required="true"/><br/><br/>
+            
+            <h:outputLabel for="input11" value="Quantity:" styleClass="form-label"/>
+            <h:inputText id="input11" value="#{adminCDIBean.quantity}" styleClass="form-input" required="true"/><br/><br/>
+            
+            <h:outputLabel for="imageUpload" value="Upload Image:" styleClass="form-label"/>
+            <h:inputFile id="imageUpload" value="#{adminCDIBean.file1}" styleClass="form-button" required="true"/><br/><br/>
+            
+            <h:commandButton value="Insert" action="#{adminCDIBean.addProductmaster()}" styleClass="form-button"/>
+            <a href="a-home.jsf" class="form-link">Home</a>
+            <br/><br/>
+        <h:dataTable id="products" value="#{adminCDIBean.pro}" var="product" border="2">
+                
+                 <h:column>
+                    <f:facet name="header">Pid</f:facet>
+                       <h:outputText value="#{product.pid}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Pname</f:facet>
+                        <h:outputText value="#{product.pname}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Ram</f:facet>
+                        <h:outputText value="#{product.ram}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Processor</f:facet>
+                       <h:outputText value="#{product.processor}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Screen Size</f:facet>
+                       <h:outputText value="#{product.screenSize}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Color</f:facet>
+                        <h:outputText value="#{product.color}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Price</f:facet>
+                        <h:outputText value="#{product.price}"/>
+                </h:column>
+                   <h:column>
+                    <f:facet name="header">Internal Storage</f:facet>
+                       <h:outputText value="#{product.internalstorage}"/>
+                </h:column>
+                  <h:column>
+                    <f:facet name="header">Network Type</f:facet>
+                       <h:outputText value="#{product.networktype}"/>
+                </h:column>
+
+                  <h:column>
+                    <f:facet name="header">Battery</f:facet>
+                       <h:outputText value="#{product.batterycapacity}"/>
+                </h:column>
+
+                  <h:column>
+                    <f:facet name="header">Description</f:facet>
+                        <h:outputText value="#{product.description}"/>
+                </h:column>
+
+                  <h:column>
+                    <f:facet name="header">Quantity</f:facet>
+                       <h:outputText value="#{product.quantity}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Image</f:facet>
+                    <!--<h:graphicImage style="height: 60px" value="#{product.productimage}" />-->
+                    <h:outputText value="#{product.productimage}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Actions</f:facet>
+                        
+                        <h:commandButton value="Delete" styleClass="form-button" >
+                            <f:ajax execute="@form" render="@form" listener="#{adminCDIBean.removeProductmaster(product.pid)}"/>
+                        </h:commandButton>
+                    
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

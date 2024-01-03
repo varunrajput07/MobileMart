@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Login</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin-top: 100px;
+            }
+
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .btn-primary {
+                background-color: #007bff;
+                border-color: #007bff;
+            }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+            /* Responsive adjustments for smaller screens */
+            @media (max-width: 576px) {
+                .container {
+                    margin-top: 30px;
+                }
+                .form-group {
+                    margin-bottom: 15px;
+                }
+            }
+
+
+        </style>
+    </h:head>
+    <h:body>
+
+<!--       <form method="POST">
+        <table border="1">
+            <tr>  
+                <td>User Name</td> <td><input type="text" name="email"  value=""/></td></tr>
+          
+            <tr>   <td>Password </td> <td><input type="password" name="password" value=""/></td></tr>
+            <tr><td><input type="submit" value="Login"/></td><td><input type="reset" value="Reset"/></td></tr>
+  
+        </table>
+        </form>
+        <br/>
+        <h:outputText id="err" style="color:red" value="#{loginBean.errorStatus}"/>-->
+        
+<div class="container">
+                <h2 class="text-center mt-5 mb-4">Login</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="text" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" autocomplete=""/>
+                                    <small id="emailHelp" class="form-text text-muted"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password"  name="password" autocomplete="off"/>
+                                    <small id="passwordHelp" class="form-text text-muted"></small>
+                            </div>
+                            <tr><td><input class="btn-primary" type="submit" value="Login"/></td><td>
+                                    <input type="reset" value="Reset"/></td></tr>
+                             <div class="text-center mt-3">
+                    <p>Don't have an account? <a href="registration.jsf">Create one</a>.</p>
+                </div>
+<!--                            <tr><td><input type="submit" value="Login"/></td><td><input type="reset" value="Reset"/></td></tr>-->
+                            <h:outputText id="err" style="color:red" value="#{loginBean.errorStatus}"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+<!--        <script>
+ 
+            </script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+
+    </h:body>
+</html>
